@@ -1,6 +1,9 @@
 import input from "input";
+import dotenv from "dotenv";
 import { TelegramClient, Api } from "telegram";
 import { StoreSession } from "telegram/sessions/index.js";
+
+dotenv.config();
 
 const UPDATE_INTERVAL = 1000 * 30; // 30 seconds
 const API_ID = parseInt(process.env.TG_API_ID, 10);
