@@ -8,7 +8,7 @@ dotenv.config();
 const UPDATE_INTERVAL = 1000 * 30; // 30 seconds
 const API_ID = parseInt(process.env.TG_API_ID, 10);
 const API_DC = parseInt(process.env.TG_API_DC, 10);
-const API_IP = parseInt(process.env.TG_API_IP, 10);
+const API_IP = process.env.TG_API_IP;
 const API_HASH = process.env.TG_API_HASH;
 const store_session = new StoreSession("");
 
