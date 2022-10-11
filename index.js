@@ -21,6 +21,7 @@ client.session.setDC(API_DC, API_IP, 443);
 const formatter = new Intl.DateTimeFormat("ru", {
   minute: "numeric",
   hour: "numeric",
+  timeZone: "Asia/Tashkent",
 });
 
 (async function run() {
