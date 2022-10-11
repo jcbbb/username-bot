@@ -10,6 +10,7 @@ const API_ID = parseInt(process.env.TG_API_ID, 10);
 const API_DC = parseInt(process.env.TG_API_DC, 10);
 const API_IP = process.env.TG_API_IP;
 const API_HASH = process.env.TG_API_HASH;
+const TZ = process.env.TIMEZONE;
 const store_session = new StoreSession("");
 
 const client = new TelegramClient(store_session, API_ID, API_HASH, {
@@ -21,7 +22,7 @@ client.session.setDC(API_DC, API_IP, 443);
 const formatter = new Intl.DateTimeFormat("ru", {
   minute: "numeric",
   hour: "numeric",
-  timeZone: "Asia/Tashkent",
+  timeZone: TZ,
 });
 
 (async function run() {
