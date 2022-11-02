@@ -25,6 +25,12 @@ const formatter = new Intl.DateTimeFormat("ru", {
   timeZone: TZ,
 });
 
+function get_lastname(lastname) {
+  if (!lastname) return `| ${formatter.format(new Date())}`;
+  const [name, _] = lastname.split("|");
+  return `${name} | ${formatter.format(new Date())}`;
+}
+
 (async function run() {
   await client.start({
     phoneNumber: async () => await input.text("Phone number: "),
@@ -41,7 +47,8 @@ const formatter = new Intl.DateTimeFormat("ru", {
   const update_me = async () => {
     await client.invoke(
       new Api.account.UpdateProfile({
-        firstName: `${me.firstName} | ${formatter.format(new Date())}`,
+        firstName: me.firstName,
+        lastName: get_lastname(me.lastName),
       })
     );
     setTimeout(update_me, UPDATE_INTERVAL);
